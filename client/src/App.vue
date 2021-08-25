@@ -1,62 +1,48 @@
 <template>
-    <div class="container text-center card mt-5">
-        <Header name="Josh" />
-        <Items @delete-song="deleteSong" :favorites="favorites" />
+    <div class="container">
+        <Header />
+        <AddJob :demo_job_list="demo_job_list" @add-job="addJob" />
+        <CardSection :demo_job_list="demo_job_list" @delete-job="deleteJob" />
     </div>
 </template>
 
 <script>
 import Header from "./components/Header";
-import Items from "./components/Items";
+import AddJob from "./components/AddJob.vue";
+import CardSection from "./components/CardSection.vue";
 
 export default {
     name: "App",
     components: {
         Header,
-        Items
+        CardSection,
+        AddJob
     },
     data() {
         return {
-            favorites: []
+            demo_job_list: []
         };
     },
     methods: {
-        deleteSong(id) {
-            this.favorites = this.favorites.filter((fav) => {
-                fav.id !== id;
-            });
+        addJob(job) {
+            this.demo_job_list = [...this.demo_job_list, job];
+        },
+        async deleteJob(id) {
+            console.log("Deleted Id: ", id);
+            this.demo_job_list = this.demo_job_list.filter(
+                (job) => job.id !== id
+            );
+        },
+        //fetching from json-server
+        async fetchJobs() {
+            const res = await fetch("api/demo_job_list");
+            const data = await res.json();
+
+            return data;
         }
     },
-
-    created() {
-        this.favorites = [
-            {
-                id: 1,
-                name: "Uptown Funk",
-                artist: "Mark Ronson"
-            },
-            {
-                id: 2,
-                name: "blurred lines",
-                artist: "pharrell williams"
-            },
-            {
-                id: 3,
-                name: "billie jean",
-                artist: "michael jackson"
-            },
-            {
-                id: 4,
-                name: "i gotta feeling",
-                artist: "black eyed peas"
-            }
-        ];
+    async created() {
+        this.demo_job_list = await this.fetchJobs();
     }
 };
 </script>
-
-<style>
-.container {
-    width: 60%;
-}
-</style>

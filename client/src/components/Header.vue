@@ -1,16 +1,13 @@
 <template>
-    <div class="container text-center">
-        <h1>Welcome, {{ name }}!</h1>
-    </div>
+    <header
+        ><div className="text-center title mt-5">
+            <h1>Application Tracker</h1>
+        </div>
+    </header>
 </template>
 
 <script>
 export default {
-    name: "HelloWorld",
-    props: {
-        name: String
-    }
+    name: "Header"
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
