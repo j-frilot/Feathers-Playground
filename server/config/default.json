@@ -9,11 +9,8 @@
   "authentication": {
     "entity": "user",
     "service": "users",
-    "secret": "cdB5J8+Sgu8z8B1Xz5sKh5GB7Jc=",
-    "authStrategies": [
-      "jwt",
-      "local"
-    ],
+    "secret": "roq6v3cJDVGvtye/wDflmOWRgys=",
+    "authStrategies": ["jwt", "local"],
     "jwtOptions": {
       "header": {
         "typ": "access"
@@ -28,5 +25,9 @@
       "passwordField": "password"
     }
   },
-  "nedb": "../data"
+  "mysql": "mysql://root:@localhost:3306/server",
+  "username": "josh",
+  "password": "funk2013",
+  "hostname": "localhost",
+  "database": "feather_jobs"
 }
