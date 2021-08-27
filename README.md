@@ -6,7 +6,7 @@
 
 Favorite Artist tracker is a simple app that lets you add/delete your favorite artist. It used vue.js on the frontend and feathersjs & mysql on the back. json-server is install if a database is not available.
 
-![screenshot](https://res.cloudinary.com/dsip2gx3i/image/upload/v1627238149/misc/hospital-screenshot.png)
+![screenshot]()
 
 ## Table of Contents
 
