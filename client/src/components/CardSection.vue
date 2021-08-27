@@ -1,29 +1,31 @@
 <template>
     <div class="row">
         <div
-            className="col-xs-12 col-sm-6 col-md-4"
-            v-for="job in demo_job_list"
-            :key="job.id"
+            class="col-xs-12 col-sm-6 col-md-4"
+            v-for="favorite in allFavorites"
+            :key="favorite.id"
         >
-            <EachJob :job="job" @delete-job="deleteJob" />
+            <EachFavorite :favorite="favorite" />
         </div>
     </div>
 </template>
 
 <script>
-import EachJob from "./EachJob";
+import EachFavorite from "./EachFavorite";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
     name: "CardSection",
     components: {
-        EachJob
+        EachFavorite
     },
-    props: { demo_job_list: Array },
+    props: { favorites: Array },
     methods: {
-        deleteJob(id) {
-            this.$emit("delete-job", id);
-        }
+        ...mapActions(["fetchFavorites"])
     },
-    emits: ["delete-job"]
+    computed: mapGetters(["allFavorites"]),
+    created() {
+        this.fetchFavorites();
+    }
 };
 </script>

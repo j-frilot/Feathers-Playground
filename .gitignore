@@ -1,4 +1,4 @@
-notes
+notes.txt
 
 ##client
 client/.DS_Store
@@ -22,27 +22,6 @@ client/*.njsproj
 client/*.sln
 client/*.sw?
 
-##client
-vuex/.DS_Store
-vuex/node_modules
-vuex/dist
-vuex/README.md
-# local env files
-vuex/.env.local
-vuex/.env.*.local
-# Log files
-vuex/npm-debug.log*
-vuex/yarn-debug.log*
-vuex/yarn-error.log*
-vuex/pnpm-debug.log*
-# Editor directories and files
-vuex/.idea
-vuex/.vscode
-vuex/*.suo
-vuex/*.ntvs*
-vuex/*.njsproj
-vuex/*.sln
-vuex/*.sw?
 
 ##server
 # Logs

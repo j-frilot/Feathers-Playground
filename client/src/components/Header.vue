@@ -1,7 +1,7 @@
 <template>
     <header
-        ><div className="text-center title mt-5">
-            <h1>Application Tracker</h1>
+        ><div class="text-center title mt-5">
+            <h1>Favorite Artist</h1>
         </div>
     </header>
 </template>
