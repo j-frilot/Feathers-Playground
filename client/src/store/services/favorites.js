@@ -1,24 +1,36 @@
 // src/store/services/favorites.js
+import find from 'feathers-vuex/dist/useFind';
 import feathersClient, {
     makeServicePlugin,
     BaseModel
-} from "../../feathers-client";
+} from '../../feathers-client';
 
 class Favorites extends BaseModel {
     constructor(data, options) {
         super(data, options);
+
+        find: {
+            return this.favorites;
+        }
+
+        create: {
+            const favorites = {
+                id: this.favorite,
+                artist: this.artist
+            };
+        }
     }
     // Required for $FeathersVuex plugin to work after production transpile.
-    static modelName = "Favorites";
+    static modelName = 'Favorites';
     // Define default properties here
     static instanceDefaults() {
         return {
-            email: "",
-            password: ""
+            id: '',
+            artist: ''
         };
     }
 }
-const servicePath = "favorites";
+const servicePath = 'favorites';
 const servicePlugin = makeServicePlugin({
     Model: Favorites,
     service: feathersClient.service(servicePath),

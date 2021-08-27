@@ -2,7 +2,7 @@
     <div class="row">
         <div
             class="col-xs-12 col-sm-6 col-md-4"
-            v-for="favorite in allFavorites"
+            v-for="favorite in favorites"
             :key="favorite.id"
         >
             <EachFavorite :favorite="favorite" />
@@ -11,21 +11,26 @@
 </template>
 
 <script>
-import EachFavorite from "./EachFavorite";
-import { mapGetters, mapActions } from "vuex";
+import EachFavorite from './EachFavorite';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
-    name: "CardSection",
+    name: 'CardSection',
     components: {
         EachFavorite
     },
     props: { favorites: Array },
-    methods: {
-        ...mapActions(["fetchFavorites"])
+    mounted() {
+        this.findFavorites({ query: {} });
     },
-    computed: mapGetters(["allFavorites"]),
+    methods: {
+        // ...mapActions(["fetchFavorites"])
+        ...mapActions('favorites', { findFavorites: 'find' })
+    },
+    // computed: mapGetters(['allFavorites']),
+    computer: mapGetters('boards', { findBoards: 'find' }),
     created() {
-        this.fetchFavorites();
+        // this.fetchFavorites();
     }
 };
 </script>

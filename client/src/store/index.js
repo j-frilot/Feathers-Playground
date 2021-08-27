@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import { FeathersVuex } from '../feathers-client';
 import auth from './store.auth';
-import favorites from './modules/favorites';
+// import favorites from './modules/favorites';
 Vue.use(Vuex);
 Vue.use(FeathersVuex);
 
@@ -23,5 +23,5 @@ export default new Vuex.Store({
     mutations: {},
     actions: {},
     plugins: [...servicePlugins, auth],
-    modules: { favorites }
+    modules: {}
 });
